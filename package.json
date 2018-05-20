@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Dr. Robert Ford has hired Riverstone to develop an application for managing his inventory of robots. There are certain characteristics that he would like to track for all robots. The app should have a front-end and a back-end component.",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "client": "cd client && npm start",
     "client-test": "cd client && npm test",
