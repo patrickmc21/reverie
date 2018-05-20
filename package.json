@@ -1,0 +1,40 @@
+{
+  "name": "reverie",
+  "version": "1.0.0",
+  "description": "Dr. Robert Ford has hired Riverstone to develop an application for managing his inventory of robots. There are certain characteristics that he would like to track for all robots. The app should have a front-end and a back-end component.",
+  "main": "index.js",
+  "proxy": "http://localhost:3000",
+  "scripts": {
+    "client": "cd client && npm start",
+    "client-test": "cd client && npm test",
+    "client-lint": "cd client && npm run lint",
+    "client-build": "cd client && npm run build",
+    "start": "nodemon server.js",
+    "test": "NODE_ENV=test mocha --exit && npm run client-test",
+    "lint": "./node_modules/eslint/bin/eslint.js --fix ./server.js ./db/ ./test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickmc21/reverie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickmc21/reverie/issues"
+  },
+  "homepage": "https://github.com/patrickmc21/reverie#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "mocha": "^5.2.0"
+  }
+}
