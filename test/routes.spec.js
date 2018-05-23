@@ -125,11 +125,61 @@ describe('api endpoints', () => {
   });
 
   describe('GET /api/v1/hosts/:id', () => {
+    it('should return a single robot', (done) => {
+      chai.request(app)
+        .get('/api/v1/hosts/1')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.json;
+          response.body.should.be.an('object');
+          response.body.should.have.property('id');
+          response.body.id.should.equal(1);
+          response.body.should.have.property('date_added');
+          response.body.date_added.should.equal('5/21/2018');
+          response.body.should.have.property('first_active');
+          response.body.first_active.should.equal('5/21/2018');
+          response.body.should.have.property('current_name');
+          response.body.current_name.should.equal('R2-D2');
+          response.body.should.have.property('height');
+          response.body.height.should.equal(3.25);
+          response.body.should.have.property('weight');
+          response.body.weight.should.equal(200);
+          response.body.should.have.property('intelligence_metric');
+          response.body.intelligence_metric.should.equal(18);
+          done();
+        });
+    });
 
+    it('should return a 404 status on invalid id', (done) => {
+      chai.request(app)
+        .get('api/v1/hosts/4')
+        .end((error, response) => {
+          response.should.have.status(404);
+          response.should.be.json;
+          response.body.should.have.property('message');
+          response.body.message.should.equal('Entry not found');
+          done();
+        });
+    });
   });
   
   describe('PUT /api/v1/hosts/:id', () => {
-
+    it('should update a robot', (done) => {
+      chai.request(app)
+        put('/api/v1/hosts/1')
+        .send({
+          date_added: '5/21/2018',
+          first_active: '5/21/2018',
+          current_name: "R2-D2",
+          height: 3.25,
+          weight: 300,
+          intelligence_metric: 18
+        })
+        .end((error, response) => {
+          
+          done();
+        });
+    })
   });
 
   describe('DELETE /api/v1/hosts/:id', () => {
