@@ -2,7 +2,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/fordsRobots',
+    connection: 'postgres://localhost/fordsrobots',
     migrations: {
       directory: './db/migrations'
     },
@@ -14,7 +14,7 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection: 'postgres://localhost/fordsRobots_test',
+    connection: 'postgres://localhost/fordsrobots_test',
     migrations: {
       directory: './db/migrations'
     },

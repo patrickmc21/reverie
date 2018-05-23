@@ -13,3 +13,5 @@ app.use(express.static(path.join(__dirname, './client/build')));
 app.listen(app.get('port'), () => {
   console.log(`server is listening on ${app.get('port')}`);
 });
+
+module.exports = { app, db };

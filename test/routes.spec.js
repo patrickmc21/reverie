@@ -6,7 +6,17 @@ const { app, db } = require('../server');
 chai.use(chaiHttp);
 
 describe('client routes', () => {
+  it('should deliver the homepage', (done) => {
+    chai.request(app)
+      .get('/')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.html;
+        done();
+      });
+  });
 
+  it('should deliver ')
 });
 
 describe('api endpoints', () => {
