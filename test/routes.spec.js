@@ -16,7 +16,14 @@ describe('client routes', () => {
       });
   });
 
-  it('should deliver ')
+  it('should deliver 404 status on invalid request', (done) => {
+    chai.request(app)
+      .get('/cyborgs')
+      .end((error, response) => {
+        response.should.have.status(404);
+        done();
+      })
+  })
 });
 
 describe('api endpoints', () => {
