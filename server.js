@@ -23,6 +23,23 @@ app.get('/api/v1/hosts', (req, res) => {
 
 app.post('/api/v1/hosts', (req, res) => {
   const robot  = req.body;
+  const robotRows = [ 
+    'date_added', 
+    'first_active', 
+    'current_name', 
+    'height', 
+    'weight', 
+    'intelligence_metric'
+  ];
+
+  for (let i = 0; i < robotRows.length; i++) {
+    if (!robot[robotRows[i]]) {
+      const message = `Invalid input, please supply a ${robotRows[i]}`
+      return res.status(405).json({ message })
+    }
+  }
+
+
   db('robots')
     .insert(robot, [
         'id',
