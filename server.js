@@ -39,22 +39,29 @@ app.post('/api/v1/hosts', (req, res) => {
     }
   }
 
-
   db('robots')
-    .insert(robot, [
-        'id',
-        'date_added',
-        'first_active',
-        'current_name',
-        'height',
-        'weight',
-        'intelligence_metric'
-    ])
+    .insert(robot, ['id', ...robotRows])
     .then(robot => {
       return res.status(200).json(robot[0])
     })
     .catch(error => {
       return res.status(500).json({ error });
+    });
+});
+
+app.get('/api/v1/hosts/:id', (req, res) => {
+  const { id } = req.params;
+
+  db('robots').select().where('id', id)
+    .then(robot => {
+      if (robot.length > 0) {
+        return res.status(200).json(robot[0]);
+      } else {
+        return res.status(404).json({message: 'Entry not found'});
+      }
+    })
+    .catch(error => {
+      return res.status(500).json(error)
     });
 });
 

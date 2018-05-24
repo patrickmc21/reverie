@@ -135,9 +135,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('5/21/2018');
+          response.body.date_added.should.equal('2018-05-21T06:00:00.000Z');
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('5/21/2018');
+          response.body.first_active.should.equal('2018-05-21T06:00:00.000Z');
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -152,7 +152,7 @@ describe('api endpoints', () => {
 
     it('should return a 404 status on invalid id', (done) => {
       chai.request(app)
-        .get('api/v1/hosts/4')
+        .get('/api/v1/hosts/4')
         .end((error, response) => {
           response.should.have.status(404);
           response.should.be.json;
