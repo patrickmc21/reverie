@@ -22,8 +22,8 @@ describe('client routes', () => {
       .end((error, response) => {
         response.should.have.status(404);
         done();
-      })
-  })
+      });
+  });
 });
 
 describe('api endpoints', () => {
@@ -31,13 +31,13 @@ describe('api endpoints', () => {
   beforeEach(() => {
     return db.migrate.rollback()
       .then(() => {
-        return db.migrate.latest()
+        return db.migrate.latest();
       })
       .then(() => {
-        return db.seed.run()
+        return db.seed.run();
       })
       .catch(error => {
-        return error
+        return error;
       });
   });
 
@@ -53,9 +53,11 @@ describe('api endpoints', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('date_added');
-          response.body[0].date_added.should.equal(new Date('5/21/2018').toISOString());
+          response.body[0].date_added.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('first_active');
-          response.body[0].first_active.should.equal(new Date('5/21/2018').toISOString());
+          response.body[0].first_active.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('current_name');
           response.body[0].current_name.should.equal('R2-D2');
           response.body[0].should.have.property('height');
@@ -88,9 +90,11 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(3);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal(new Date('5/23/2018').toISOString());
+          response.body.date_added.should
+            .equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal(new Date('5/23/2018').toISOString());
+          response.body.first_active.should
+            .equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('T-1000');
           response.body.should.have.property('height');
@@ -103,7 +107,7 @@ describe('api endpoints', () => {
         });
     });
 
-    it('should not add a robot to the database if invalid body supplied', (done) => {
+    it('should not add robot if invalid body supplied', (done) => {
       chai.request(app)
         .post('/api/v1/hosts')
         .send({
@@ -118,7 +122,8 @@ describe('api endpoints', () => {
           response.should.be.json;
           response.body.should.be.an('object');
           response.body.should.have.property('message');
-          response.body.message.should.equal('Invalid input, please supply a current_name');
+          response.body.message.should
+            .equal('Invalid input, please supply a current_name');
           done();
         });
     });
@@ -135,9 +140,11 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
+          response.body.date_added.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
+          response.body.first_active.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -183,9 +190,11 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
+          response.body.date_added.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
+          response.body.first_active.should
+            .equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -236,7 +245,8 @@ describe('api endpoints', () => {
           response.should.be.json;
           response.body.should.be.an('object');
           response.body.should.have.property('message');
-          response.body.message.should.equal('Invalid input, input must include height');
+          response.body.message.should
+            .equal('Invalid input, input must include height');
           done();
         });
     });
@@ -252,7 +262,7 @@ describe('api endpoints', () => {
           response.body.should.have.property('message');
           response.body.message.should.equal('Robot Data Deleted');        
           done();
-        })
+        });
     });
 
     it('should return 404 if no entry found', (done) => {
@@ -264,7 +274,7 @@ describe('api endpoints', () => {
           response.body.should.have.property('message');
           response.body.message.should.equal('Entry not found');        
           done();
-        })
-    })
+        });
+    });
   });
-})
+});

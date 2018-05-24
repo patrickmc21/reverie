@@ -11,7 +11,7 @@
     "client-build": "cd client && npm run build",
     "start": "nodemon server.js",
     "test": "NODE_ENV=test mocha --exit",
-    "lint": "./node_modules/eslint/bin/eslint.js --fix ./server.js ./db/ ./test/"
+    "lint": "./node_modules/eslint/bin/eslint.js --fix ./server.js ./test/"
   },
   "repository": {
     "type": "git",
