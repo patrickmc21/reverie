@@ -1,0 +1,22 @@
+.App__robot-container {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin: auto;
+  height: 620px;
+  width: 90vw;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+.add-robot {
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+.card-container {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;*/

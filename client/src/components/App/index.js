@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
 import api from '../../api';
 import RobotContainer from '../RobotContainer';
+import RobotForm from '../RobotForm';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       robots: [],
-      robotField: false,
+      showRobotForm: false,
+      editing: null,
       errorStatus: ''
     };
   }
@@ -21,7 +22,9 @@ class App extends Component {
 
   addRobot = async (newRobot) => {
     try {
-      const robot = api.postRobot(robot);
+      const robot = await api.postRobot(newRobot);
+      const robots = [...this.state.robots, robot];
+      this.setState({ robots, showRobotForm: false });
     } catch (error) {
       this.setState({ errorStatus: error });
     }
@@ -37,7 +40,7 @@ class App extends Component {
           return robot
         }
       });
-      this.setState({ robots });
+      this.setState({ robots, showRobotForm: false, editing: null });
     } catch (error) {
       this.setState({ errorStatus: error });
     }
@@ -53,21 +56,33 @@ class App extends Component {
     }
   }
 
+  triggerForm = (robot) => {
+    if (robot) {
+      this.setState({showRobotForm: true, editing: robot})
+    } else {
+      this.setState({showRobotForm: true});
+    }
+  }
+
   render() {
-    const { robots, robotField } = this.state;
-    const { addRobot, editRobot, removeRobot } = this;
+    const { robots, showRobotForm, editing } = this.state;
+    const { addRobot, editRobot, removeRobot, triggerForm } = this;
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <main>
           <RobotContainer 
             robots={robots}
-            editRobot={editRobot}
+            triggerForm={triggerForm}
             removeRobot={removeRobot}
           />
+          { showRobotForm && 
+            <RobotForm 
+              editRobot={editRobot} 
+              addRobot={addRobot}
+              editing={editing}/> }
         </main>
       </div>
     );
