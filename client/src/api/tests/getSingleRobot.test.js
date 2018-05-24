@@ -1,5 +1,5 @@
 import getSingleRobot from '../getSingleRobot';
-import mockRobots from '../../mock-data';
+import { mockRobots } from '../../mock-data';
 
 describe('getSingleRobot', () => {
 
@@ -29,7 +29,7 @@ describe('getSingleRobot', () => {
 
   it('should call fetch with correct params', () => {
     const expected = url;
-    getSingleRobot();
+    getSingleRobot(1);
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
