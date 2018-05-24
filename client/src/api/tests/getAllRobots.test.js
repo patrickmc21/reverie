@@ -18,7 +18,9 @@ describe('getAllRobots', () => {
 
     errorResponse = {
       status: 500,
-      message: 'Failed to fetch'
+      json: () => {
+        return Promise.resolve({message: 'Failed to fetch'})
+      }
     };
 
     window.fetch = jest.fn().mockImplementation(() => {
@@ -43,9 +45,9 @@ describe('getAllRobots', () => {
       return Promise.resolve(errorResponse)
     });
 
-    const expected = errorResponse;
+    const expected = 'Failed to fetch';
     const results = await getAllRobots();
-    expect(results).toEqual(expected);
+    expect(results.message).toEqual(expected);
   });
 
 });
