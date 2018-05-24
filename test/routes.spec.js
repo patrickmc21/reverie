@@ -53,9 +53,9 @@ describe('api endpoints', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('date_added');
-          response.body[0].date_added.should.equal('5/21/2018');
+          response.body[0].date_added.should.equal('2018-05-21T06:00:00.000Z');
           response.body[0].should.have.property('first_active');
-          response.body[0].first_active.should.equal('5/21/2018');
+          response.body[0].first_active.should.equal('2018-05-21T06:00:00.000Z');
           response.body[0].should.have.property('current_name');
           response.body[0].current_name.should.equal('R2-D2');
           response.body[0].should.have.property('height');

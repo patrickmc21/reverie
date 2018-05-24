@@ -10,6 +10,16 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(path.join(__dirname, './client/build')));
 
+app.get('/api/v1/hosts', (req, res) => {
+  db('robots').select()
+    .then(robots => {
+      res.status(200).json(robots);
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
 app.listen(app.get('port'), () => {
   console.log(`server is listening on ${app.get('port')}`);
 });
