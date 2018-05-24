@@ -2,7 +2,7 @@ language: node_js
 node_js: '9'
 services: postgresql
 before_script:
-- cd client && npm install
+- cd client && npm install && npm run build && cd ..
 - psql -c 'create database fordsRobots_test;' -U postgres
 notifications:
   email: false
