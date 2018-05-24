@@ -39,7 +39,7 @@ describe('updateRobot', () => {
 
   it('should call fetch with correct params', () => {
     const expected = [url, options];
-    updatedRobot(updatedRobot);
+    updateRobot(updatedRobot);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
