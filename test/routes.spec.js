@@ -240,6 +240,28 @@ describe('api endpoints', () => {
   });
 
   describe('DELETE /api/v1/hosts/:id', () => {
+    it('should delete a robot entry', (done) => {
+      chai.request(app)
+        .delete('/api/v1/hosts/2')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.json;
+          response.body.should.have.property('message');
+          response.body.message.should.equal('Robot Data Deleted');        
+          done();
+        })
+    });
 
+    it('should return 404 if no entry found', (done) => {
+      chai.request(app)
+        .delete('/api/v1/hosts/3')
+        .end((error, response) => {
+          response.should.have.status(404);
+          response.should.be.json;
+          response.body.should.have.property('message');
+          response.body.message.should.equal('Entry not found');        
+          done();
+        })
+    })
   });
 })
