@@ -53,9 +53,9 @@ describe('api endpoints', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('date_added');
-          response.body[0].date_added.should.equal('2018-05-21T06:00:00.000Z');
+          response.body[0].date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('first_active');
-          response.body[0].first_active.should.equal('2018-05-21T06:00:00.000Z');
+          response.body[0].first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('current_name');
           response.body[0].current_name.should.equal('R2-D2');
           response.body[0].should.have.property('height');
@@ -88,9 +88,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(3);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('2018-05-23T06:00:00.000Z');
+          response.body.date_added.should.equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('2018-05-23T06:00:00.000Z');
+          response.body.first_active.should.equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('T-1000');
           response.body.should.have.property('height');
@@ -135,9 +135,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('2018-05-21T06:00:00.000Z');
+          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('2018-05-21T06:00:00.000Z');
+          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -183,9 +183,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('2018-05-21T06:00:00.000Z');
+          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('2018-05-21T06:00:00.000Z');
+          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
