@@ -26,4 +26,25 @@ describe('getSingleRobot', () => {
       return Promise.resolve(goodResponse)
     });
   });
+
+  it('should call fetch with correct params', () => {
+    const expected = url;
+    getSingleRobot();
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+  });
+
+  it('should return a single robot object', async () => {
+    const expected = mockRobots[0];
+    const results = await getSingleRobot(1);
+    expect(results).toEqual(expected);
+  });
+
+  it('should return an error on failed fetch', async () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve(errorResponse);
+    });
+    const expected = 'Entry not found';
+    const results = await getSingleRobot(1);
+    expect(results.message).toEqual(expected)
+  });
 });
