@@ -17,4 +17,13 @@ export const mockRobots = [
     weight: 250,
     intelligence_metric: 14
   }
-]
+];
+
+export const newRobot = {
+  date_added: '5/23/2018',
+  first_active: '5/23/2018',
+  current_name: "T-1000",
+  height: 6.5,
+  weight: 400,
+  intelligence_metric: 19
+}
