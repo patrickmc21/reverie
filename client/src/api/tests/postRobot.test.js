@@ -42,7 +42,7 @@ describe('postRobot', () => {
 
   it('should return the new robot with id', async () => {
     const expected = {id: 3, ...newRobot};
-    const results = postRobot(newRobot);
+    const results = await postRobot(newRobot);
     expect(results).toEqual(expected);
   });
 
