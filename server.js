@@ -96,6 +96,22 @@ app.put('/api/v1/hosts/:id', (req, res) => {
 
 });
 
+app.delete('/api/v1/hosts/:id', (req, res) => {
+  const { id } = req.params;
+
+  db('robots').where('id', id).del()
+    .then(deleted => {
+      if (deleted === 1) {
+        return res.status(200).json({message: 'Robot Data Deleted'});
+      } else {
+        return res.status(404).json({message: 'Entry not found'});
+      }
+    })
+    .catch(error => {
+      return res.status(500).json(error)
+    }); 
+});
+
 app.listen(app.get('port'), () => {
   console.log(`server is listening on ${app.get('port')}`);
 });
