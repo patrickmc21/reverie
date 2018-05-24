@@ -65,6 +65,37 @@ app.get('/api/v1/hosts/:id', (req, res) => {
     });
 });
 
+app.put('/api/v1/hosts/:id', (req, res) => {
+  const { id } = req.params;
+  const robot = req.body;
+  const robotRows = [
+    'id', 
+    'date_added', 
+    'first_active', 
+    'current_name', 
+    'height', 
+    'weight', 
+    'intelligence_metric'
+  ];
+
+  for (let i = 0; i < robotRows.length; i++) {
+    if (!robot[robotRows[i]]) {
+      const message = `Invalid input, input must include ${robotRows[i]}`
+      return res.status(405).json({ message })
+    }
+  }
+
+  db('robots').where('id', id).update(robot, [...robotRows])
+    .then(robot => {
+      if (robot.length > 0) {
+        return res.status(200).json(robot[0]);
+      } else {
+        return res.status(404).json({message: 'Entry not found'});
+      }
+    })
+
+});
+
 app.listen(app.get('port'), () => {
   console.log(`server is listening on ${app.get('port')}`);
 });

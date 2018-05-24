@@ -166,8 +166,9 @@ describe('api endpoints', () => {
   describe('PUT /api/v1/hosts/:id', () => {
     it('should update a robot', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/1')
+        .put('/api/v1/hosts/1')
         .send({
+          id: 1,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
@@ -182,9 +183,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('5/21/2018');
+          response.body.date_added.should.equal('2018-05-21T06:00:00.000Z');
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('5/21/2018');
+          response.body.first_active.should.equal('2018-05-21T06:00:00.000Z');
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -199,8 +200,9 @@ describe('api endpoints', () => {
 
     it('should return 404 if entry not found', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/4')
+        .put('/api/v1/hosts/4')
         .send({
+          id: 4,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
@@ -220,8 +222,9 @@ describe('api endpoints', () => {
 
     it('should return 405 if invlid input provided', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/1')
+        .put('/api/v1/hosts/1')
         .send({
+          id: 1,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
