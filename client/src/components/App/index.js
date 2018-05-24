@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
-import Nav from '../Nav';
 import RobotContainer from '../RobotContainer';
 import './App.css';
 
@@ -8,7 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      robots: []
+      robots: [],
+      robotField: false
     };
   }
 
@@ -20,8 +20,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <main>
-          <Nav />
-          <RobotContainer />
+          <RobotContainer 
+            robots={this.state.robots}
+          />
         </main>
       </div>
     );
