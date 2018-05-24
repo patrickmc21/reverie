@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/patrickmc21/reverie.svg?branch=master)](https://travis-ci.org/patrickmc21/reverie)
+
 # Reverie - Inventory Tracking App
 
 Dr. Robert Ford has hired Riverstone to develop an application for
