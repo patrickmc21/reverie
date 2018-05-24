@@ -53,9 +53,9 @@ describe('api endpoints', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('date_added');
-          response.body[0].date_added.should.equal('5/21/2018');
+          response.body[0].date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('first_active');
-          response.body[0].first_active.should.equal('5/21/2018');
+          response.body[0].first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body[0].should.have.property('current_name');
           response.body[0].current_name.should.equal('R2-D2');
           response.body[0].should.have.property('height');
@@ -88,9 +88,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(3);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('5/23/2018');
+          response.body.date_added.should.equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('5/23/2018');
+          response.body.first_active.should.equal(new Date('5/23/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('T-1000');
           response.body.should.have.property('height');
@@ -135,9 +135,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('5/21/2018');
+          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('5/21/2018');
+          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -152,7 +152,7 @@ describe('api endpoints', () => {
 
     it('should return a 404 status on invalid id', (done) => {
       chai.request(app)
-        .get('api/v1/hosts/4')
+        .get('/api/v1/hosts/4')
         .end((error, response) => {
           response.should.have.status(404);
           response.should.be.json;
@@ -166,8 +166,9 @@ describe('api endpoints', () => {
   describe('PUT /api/v1/hosts/:id', () => {
     it('should update a robot', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/1')
+        .put('/api/v1/hosts/1')
         .send({
+          id: 1,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
@@ -182,9 +183,9 @@ describe('api endpoints', () => {
           response.body.should.have.property('id');
           response.body.id.should.equal(1);
           response.body.should.have.property('date_added');
-          response.body.date_added.should.equal('5/21/2018');
+          response.body.date_added.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('first_active');
-          response.body.first_active.should.equal('5/21/2018');
+          response.body.first_active.should.equal(new Date('5/21/2018').toISOString());
           response.body.should.have.property('current_name');
           response.body.current_name.should.equal('R2-D2');
           response.body.should.have.property('height');
@@ -199,8 +200,9 @@ describe('api endpoints', () => {
 
     it('should return 404 if entry not found', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/4')
+        .put('/api/v1/hosts/4')
         .send({
+          id: 4,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
@@ -220,8 +222,9 @@ describe('api endpoints', () => {
 
     it('should return 405 if invlid input provided', (done) => {
       chai.request(app)
-        put('/api/v1/hosts/1')
+        .put('/api/v1/hosts/1')
         .send({
+          id: 1,
           date_added: '5/21/2018',
           first_active: '5/21/2018',
           current_name: "R2-D2",
