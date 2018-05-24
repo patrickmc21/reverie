@@ -112,8 +112,6 @@ app.delete('/api/v1/hosts/:id', (req, res) => {
     }); 
 });
 
-app.listen(app.get('port'), () => {
-  console.log(`server is listening on ${app.get('port')}`);
-});
+app.listen(app.get('port'));
 
 module.exports = { app, db };
