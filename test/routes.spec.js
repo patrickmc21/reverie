@@ -22,8 +22,8 @@ describe('client routes', () => {
       .end((error, response) => {
         response.should.have.status(404);
         done();
-      })
-  })
+      });
+  });
 });
 
 describe('api endpoints', () => {
@@ -31,13 +31,13 @@ describe('api endpoints', () => {
   beforeEach(() => {
     return db.migrate.rollback()
       .then(() => {
-        return db.migrate.latest()
+        return db.migrate.latest();
       })
       .then(() => {
-        return db.seed.run()
+        return db.seed.run();
       })
       .catch(error => {
-        return error
+        return error;
       });
   });
 
@@ -252,7 +252,7 @@ describe('api endpoints', () => {
           response.body.should.have.property('message');
           response.body.message.should.equal('Robot Data Deleted');        
           done();
-        })
+        });
     });
 
     it('should return 404 if no entry found', (done) => {
@@ -264,7 +264,7 @@ describe('api endpoints', () => {
           response.body.should.have.property('message');
           response.body.message.should.equal('Entry not found');        
           done();
-        })
-    })
+        });
+    });
   });
-})
+});

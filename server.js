@@ -32,17 +32,17 @@ app.post('/api/v1/hosts', (req, res) => {
     'intelligence_metric'
   ];
 
-  for (let i = 0; i < robotRows.length; i++) {
-    if (!robot[robotRows[i]]) {
-      const message = `Invalid input, please supply a ${robotRows[i]}`
-      return res.status(405).json({ message })
+  for (let idx = 0; idx < robotRows.length; idx++) {
+    if (!robot[robotRows[idx]]) {
+      const message = `Invalid input, please supply a ${robotRows[idx]}`;
+      return res.status(405).json({ message });
     }
   }
 
   db('robots')
     .insert(robot, ['id', ...robotRows])
     .then(robot => {
-      return res.status(200).json(robot[0])
+      return res.status(200).json(robot[0]);
     })
     .catch(error => {
       return res.status(500).json({ error });
@@ -61,7 +61,7 @@ app.get('/api/v1/hosts/:id', (req, res) => {
       }
     })
     .catch(error => {
-      return res.status(500).json(error)
+      return res.status(500).json(error);
     });
 });
 
@@ -78,10 +78,10 @@ app.put('/api/v1/hosts/:id', (req, res) => {
     'intelligence_metric'
   ];
 
-  for (let i = 0; i < robotRows.length; i++) {
-    if (!robot[robotRows[i]]) {
-      const message = `Invalid input, input must include ${robotRows[i]}`
-      return res.status(405).json({ message })
+  for (let idx = 0; idx < robotRows.length; idx++) {
+    if (!robot[robotRows[idx]]) {
+      const message = `Invalid input, input must include ${robotRows[idx]}`;
+      return res.status(405).json({ message });
     }
   }
 
@@ -92,7 +92,7 @@ app.put('/api/v1/hosts/:id', (req, res) => {
       } else {
         return res.status(404).json({message: 'Entry not found'});
       }
-    })
+    });
 
 });
 
@@ -108,7 +108,7 @@ app.delete('/api/v1/hosts/:id', (req, res) => {
       }
     })
     .catch(error => {
-      return res.status(500).json(error)
+      return res.status(500).json(error);
     }); 
 });
 
