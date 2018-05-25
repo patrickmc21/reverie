@@ -9,7 +9,7 @@ describe('updateRobot', () => {
   let errorResponse;
 
   beforeEach(() => {
-    url = '/api/v1/hosts/3';
+    url = '/api/v1/hosts/2';
     options = {
       method: 'PUT',
       body: JSON.stringify(updatedRobot),
