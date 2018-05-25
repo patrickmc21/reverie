@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './RobotCard.css';
 
 const RobotCard = ({robot, triggerForm, removeRobot, classType}) => {
@@ -35,7 +36,14 @@ const RobotCard = ({robot, triggerForm, removeRobot, classType}) => {
         </li>
       </ul>
     </article>
-  )
+  );
+};
+
+RobotCard.propTypes = {
+  robot: PropTypes.object,
+  triggerForm: PropTypes.func,
+  removeRobot: PropTypes.func,
+  classType: PropTypes.string
 };
 
 export default RobotCard;

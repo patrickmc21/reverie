@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import RobotCard from './index';
 import { mockRobots } from '../../mock-data';
@@ -17,10 +16,10 @@ describe('RobotCard', () => {
     mockRemoveRobot = jest.fn();
     wrapper = shallow(
       <RobotCard
-       robot={mockRobots[0]}
-       triggerForm={mockTriggerForm}
-       removeRobot={mockRemoveRobot}
-       classType='even' />
+        robot={mockRobots[0]}
+        triggerForm={mockTriggerForm}
+        removeRobot={mockRemoveRobot}
+        classType='even' />
     );
   });
 
