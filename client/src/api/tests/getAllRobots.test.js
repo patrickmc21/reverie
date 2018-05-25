@@ -42,12 +42,12 @@ describe('getAllRobots', () => {
 
   it('should throw an error on failed fetch request', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse)
+      return Promise.reject(errorResponse)
     });
 
-    const expected = 'Failed to fetch';
-    const results = await getAllRobots();
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results =  getAllRobots();
+    expect(results).rejects.toEqual(expected);
   });
 
 });

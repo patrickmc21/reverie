@@ -29,7 +29,7 @@ export const newRobot = {
 }
 
 export const updatedRobot = {
-  id: 3,
+  id: 2,
   date_added: '5/23/2018',
   first_active: '5/23/2018',
   current_name: "T-1000",

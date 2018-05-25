@@ -51,10 +51,10 @@ describe('updateRobot', () => {
 
   it('should return error message on failed request', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse);
+      return Promise.reject(errorResponse);
     });
-    const expected = 'Entry not found';
-    const results = await updateRobot(updatedRobot);
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results = updateRobot(updatedRobot);
+    expect(results).rejects.toEqual(expected);
   });
 });

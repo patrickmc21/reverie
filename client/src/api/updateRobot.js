@@ -13,7 +13,7 @@ const updateRobot = async (robot) => {
     const updatedRobot = response.json();
     return updatedRobot;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 

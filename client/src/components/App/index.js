@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      madeInitialCall: false,
       robots: [],
       showRobotForm: false,
       editing: null,
@@ -15,9 +16,15 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    if (!this.state.madeInitialCall) {
+      this.fetchAllRobots();
+    }
+  }
+
+  fetchAllRobots = async () => {
     const robots = await api.getAllRobots();
-    this.setState({ robots });
+    this.setState({ robots, madeInitialCall: true });
   }
 
   addRobot = async (newRobot) => {
@@ -26,7 +33,7 @@ class App extends Component {
       const robots = [...this.state.robots, robot];
       this.setState({ robots, showRobotForm: false });
     } catch (error) {
-      this.setState({ errorStatus: error });
+      this.setState({ errorStatus: error.message });
     }
   }
 
@@ -42,7 +49,7 @@ class App extends Component {
       });
       this.setState({ robots, showRobotForm: false, editing: null });
     } catch (error) {
-      this.setState({ errorStatus: error });
+      this.setState({ errorStatus: error.message });
     }
   }
 
@@ -52,7 +59,7 @@ class App extends Component {
       const robots = this.state.robots.filter(robot => robot.id !== id);
       this.setState({ robots });
     } catch (error) {
-      this.setState({ errorStatus: error });
+      this.setState({ errorStatus: error.message });
     }
   }
 

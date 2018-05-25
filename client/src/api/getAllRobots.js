@@ -6,7 +6,7 @@ const getAllRobots = async () => {
     const robots = await response.json();
     return robots;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 

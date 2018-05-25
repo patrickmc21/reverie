@@ -41,10 +41,10 @@ describe('getSingleRobot', () => {
 
   it('should return an error on failed fetch', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse);
+      return Promise.reject(errorResponse);
     });
-    const expected = 'Entry not found';
-    const results = await getSingleRobot(1);
-    expect(results.message).toEqual(expected)
+    const expected = errorResponse;
+    const results = getSingleRobot(1);
+    expect(results).rejects.toEqual(expected)
   });
 });

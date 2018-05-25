@@ -48,10 +48,10 @@ describe('postRobot', () => {
 
   it('should return error on failed fetch', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse);
+      return Promise.reject(errorResponse);
     });
-    const expected = 'Invalid input, please supply a current_name';
-    const results = await postRobot(newRobot);
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results = postRobot(newRobot);
+    expect(results).rejects.toEqual(expected);
   });
 })
