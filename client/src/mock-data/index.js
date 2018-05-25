@@ -26,10 +26,10 @@ export const newRobot = {
   height: 6.5,
   weight: 400,
   intelligence_metric: 19
-}
+};
 
 export const updatedRobot = {
-  id: 3,
+  id: 2,
   date_added: '5/23/2018',
   first_active: '5/23/2018',
   current_name: "T-1000",

@@ -19,13 +19,15 @@ describe('postRobot', () => {
     goodResponse = {
       status: 200,
       json: () => {
-        return Promise.resolve({id: 3, ...newRobot})
+        return Promise.resolve({id: 3, ...newRobot});
       }
     };
     errorResponse = {
       status: 404,
       json: () => {
-        return Promise.resolve({message: 'Invalid input, please supply a current_name'})
+        return Promise.resolve(
+          {message: 'Invalid input, please supply a current_name'}
+        );
       }
     };
 
@@ -48,10 +50,10 @@ describe('postRobot', () => {
 
   it('should return error on failed fetch', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse);
+      return Promise.reject(errorResponse);
     });
-    const expected = 'Invalid input, please supply a current_name';
-    const results = await postRobot(newRobot);
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results = postRobot(newRobot);
+    expect(results).rejects.toEqual(expected);
   });
-})
+});

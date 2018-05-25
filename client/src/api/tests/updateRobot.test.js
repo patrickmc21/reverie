@@ -9,7 +9,7 @@ describe('updateRobot', () => {
   let errorResponse;
 
   beforeEach(() => {
-    url = '/api/v1/hosts/3';
+    url = '/api/v1/hosts/2';
     options = {
       method: 'PUT',
       body: JSON.stringify(updatedRobot),
@@ -21,14 +21,14 @@ describe('updateRobot', () => {
     goodResponse = {
       status: 200,
       json: () => {
-        return Promise.resolve(updatedRobot)
+        return Promise.resolve(updatedRobot);
       }
     };
 
     errorResponse = {
       status: 404,
       json: () => {
-        return Promise.resolve({message: 'Entry not found'})
+        return Promise.resolve({message: 'Entry not found'});
       }
     };
 
@@ -51,10 +51,10 @@ describe('updateRobot', () => {
 
   it('should return error message on failed request', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse);
+      return Promise.reject(errorResponse);
     });
-    const expected = 'Entry not found';
-    const results = await updateRobot(updatedRobot);
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results = updateRobot(updatedRobot);
+    expect(results).rejects.toEqual(expected);
   });
 });

@@ -12,26 +12,26 @@ describe('getAllRobots', () => {
     goodResponse = {
       status: 200,
       json: () => {
-        return Promise.resolve(mockRobots)
+        return Promise.resolve(mockRobots);
       }
     };
 
     errorResponse = {
       status: 500,
       json: () => {
-        return Promise.resolve({message: 'Failed to fetch'})
+        return Promise.resolve({message: 'Failed to fetch'});
       }
     };
 
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(goodResponse)
+      return Promise.resolve(goodResponse);
     });
   });
 
   it('should call fetch with the correct params', () => {
     const expected = url;
     getAllRobots();
-    expect(window.fetch).toHaveBeenCalledWith(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
   it('should return an array of data', async () => {
@@ -42,12 +42,12 @@ describe('getAllRobots', () => {
 
   it('should throw an error on failed fetch request', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(errorResponse)
+      return Promise.reject(errorResponse);
     });
 
-    const expected = 'Failed to fetch';
-    const results = await getAllRobots();
-    expect(results.message).toEqual(expected);
+    const expected = errorResponse;
+    const results =  getAllRobots();
+    expect(results).rejects.toEqual(expected);
   });
 
 });

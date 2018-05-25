@@ -1,0 +1,43 @@
+.robot-card__list {
+  display: grid;
+  margin: 0;
+  grid-template-columns: 15% 15% 15% 15% 15% 12.5% 5% 5%;
+  grid-template-rows: 50px;
+  list-style: none;
+}
+
+.robot-card__list--list-item {
+  padding-top: 15px;
+  grid-column-start: span 1;
+  color: #FAFAFA;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.edit-robot,
+.delete-robot {
+  border: none;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.edit-robot {
+  background-image: url('../../assets/edit.png');
+}
+
+.edit-robot:hover {
+  background-image: url('../../assets/edit-hover.png');
+}
+
+.delete-robot {
+  background-image: url('../../assets/trash.png');
+}
+
+.delete-robot:hover {
+  background-image: url('../../assets/trash-hover.png');
+}
+
+

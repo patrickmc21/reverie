@@ -6,7 +6,7 @@ const getSingleRobot = async (id) => {
     const robot = await response.json();
     return robot;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 

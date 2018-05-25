@@ -13,7 +13,7 @@ const postRobot = async (robot) => {
     const robotWithId = await response.json();
     return robotWithId;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
