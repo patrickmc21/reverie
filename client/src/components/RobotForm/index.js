@@ -5,6 +5,7 @@ class RobotForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
       date_added: '',
       first_active: '',
       current_name: '',
@@ -41,8 +42,8 @@ class RobotForm extends Component {
   }
 
   handleSubmit = (e) => {
-    const robot = this.state;
     e.preventDefault();
+    const robot = this.state;
     if (this.props.editing) {
       const { id } = this.props.editing;
       this.props.editRobot({id ,...robot});
@@ -50,6 +51,7 @@ class RobotForm extends Component {
       this.props.addRobot(robot);
     }
     this.setState({
+      id: null,
       date_added: '',
       first_active: '',
       current_name: '',
