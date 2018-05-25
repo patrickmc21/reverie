@@ -44,7 +44,7 @@ class App extends Component {
         if (robot.id === changedRobot.id) {
           return updatedRobot;
         } else {
-          return robot
+          return robot;
         }
       });
       this.setState({ robots, showRobotForm: false, editing: null });
@@ -65,7 +65,7 @@ class App extends Component {
 
   triggerForm = (robot) => {
     if (robot) {
-      this.setState({showRobotForm: true, editing: robot})
+      this.setState({showRobotForm: true, editing: robot});
     } else {
       this.setState({showRobotForm: true});
     }

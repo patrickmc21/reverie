@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import api from '../../api';
 import App from './index';
@@ -12,7 +11,7 @@ describe('App', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App />, {disableLifecycleMethods: true})
+    wrapper = shallow(<App />, {disableLifecycleMethods: true});
   });
 
   it('should match the snapshot', () => {
@@ -27,7 +26,7 @@ describe('App', () => {
   it('should call fetchAllRobots on mount', () => {
     const spy = jest.spyOn(wrapper.instance(), 'fetchAllRobots');
     wrapper.instance().componentDidMount();
-    expect(spy).toHaveBeenCalledTimes(1)
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('should not fetch robots on mount if fetch has happened', () => {
@@ -63,7 +62,7 @@ describe('App', () => {
   it('should call api updateRobot in editRobot method', () => {
     const expected = updatedRobot;
     wrapper.instance().editRobot(updatedRobot);
-    expect(api.updateRobot).toHaveBeenCalledWith(expected)
+    expect(api.updateRobot).toHaveBeenCalledWith(expected);
   });
 
   it('should update state on editRobot', async () => {
