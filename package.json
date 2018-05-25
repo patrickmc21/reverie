@@ -10,7 +10,7 @@
     "client-lint": "cd client && npm run lint",
     "client-build": "cd client && npm run build",
     "start": "nodemon server.js",
-    "test": "NODE_ENV=test mocha --exit",
+    "test": "NODE_ENV=test mocha --exit && cd client && npm test && cd ../",
     "lint": "./node_modules/eslint/bin/eslint.js --fix ./server.js ./test/"
   },
   "repository": {
