@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import RobotContainer from './index';
 import { mockRobots } from '../../mock-data';
@@ -19,7 +18,7 @@ describe('RobotContainer', () => {
         triggerForm={mockTriggerForm}
         removeRobot={mockRemoveRobot} />
     );
-  })
+  });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
@@ -29,4 +28,4 @@ describe('RobotContainer', () => {
     wrapper.find('.add-robot').simulate('click');
     expect(mockTriggerForm).toHaveBeenCalledTimes(1);
   });
-})
+});

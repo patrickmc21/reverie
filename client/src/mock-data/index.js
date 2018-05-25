@@ -26,7 +26,7 @@ export const newRobot = {
   height: 6.5,
   weight: 400,
   intelligence_metric: 19
-}
+};
 
 export const updatedRobot = {
   id: 2,

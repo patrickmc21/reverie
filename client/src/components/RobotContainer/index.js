@@ -1,5 +1,6 @@
 import React from 'react';
 import RobotCard from '../RobotCard';
+import PropTypes from 'prop-types';
 import './RobotContainer.css';
 
 const RobotContainer = ({robots, triggerForm, removeRobot}) => {
@@ -13,12 +14,14 @@ const RobotContainer = ({robots, triggerForm, removeRobot}) => {
         removeRobot={removeRobot}
         classType={evenClass}
       />
-    )
-  })
+    );
+  });
 
   return (
     <section className='App__robot-container'>
-      <button className='add-robot' onClick={() => triggerForm()}>Add Robot</button>
+      <button 
+        className='add-robot' 
+        onClick={() => triggerForm()}>Add Robot</button>
       <div className='card-container'>
         <article className='robot-card'>
           <ul className='robot-card__list even'>
@@ -45,7 +48,13 @@ const RobotContainer = ({robots, triggerForm, removeRobot}) => {
         {robotCards}
       </div>
     </section>
-  )
-}
+  );
+};
+
+RobotContainer.propTypes = {
+  robots: PropTypes.array,
+  triggerForm: PropTypes.func,
+  removeRobot: PropTypes.func
+};
 
 export default RobotContainer;

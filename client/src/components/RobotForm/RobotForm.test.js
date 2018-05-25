@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import RobotForm from './index';
 import { mockRobots, updatedRobot } from '../../mock-data';
@@ -20,7 +19,7 @@ describe('RobotForm', () => {
         editRobot={mockEditRobot}
         addRobot={mockAddRobot}
         editing={mockEditing} />
-    )
+    );
   });
 
   it('should match the snapshot', () => {

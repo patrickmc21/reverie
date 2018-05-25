@@ -11,7 +11,7 @@ class App extends Component {
       madeInitialCall: false,
       robots: [],
       showRobotForm: false,
-      editing: null,
+      editing: {},
       errorStatus: ''
     };
   }
