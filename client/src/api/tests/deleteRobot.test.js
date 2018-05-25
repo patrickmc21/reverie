@@ -11,7 +11,7 @@ describe('deleteRobot', () => {
     url = '/api/v1/hosts/1';
     options = {
       method: 'DELETE'
-    }
+    };
     goodResponse = {
       status: 200,
       json: () => {
@@ -25,7 +25,7 @@ describe('deleteRobot', () => {
     };
 
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(goodResponse)
+      return Promise.resolve(goodResponse);
     });
   });
 
@@ -43,7 +43,7 @@ describe('deleteRobot', () => {
 
   it('should return error on failed delete', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.reject(errorResponse)
+      return Promise.reject(errorResponse);
     });
     
     const expected = errorResponse;

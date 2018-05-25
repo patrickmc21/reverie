@@ -18,12 +18,12 @@ describe('getSingleRobot', () => {
     errorResponse = {
       status: 404,
       json: () => {
-        return Promise.resolve({message: 'Entry not found'})
+        return Promise.resolve({message: 'Entry not found'});
       }
     };
 
     window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve(goodResponse)
+      return Promise.resolve(goodResponse);
     });
   });
 
@@ -45,6 +45,6 @@ describe('getSingleRobot', () => {
     });
     const expected = errorResponse;
     const results = getSingleRobot(1);
-    expect(results).rejects.toEqual(expected)
+    expect(results).rejects.toEqual(expected);
   });
 });

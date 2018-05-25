@@ -19,13 +19,15 @@ describe('postRobot', () => {
     goodResponse = {
       status: 200,
       json: () => {
-        return Promise.resolve({id: 3, ...newRobot})
+        return Promise.resolve({id: 3, ...newRobot});
       }
     };
     errorResponse = {
       status: 404,
       json: () => {
-        return Promise.resolve({message: 'Invalid input, please supply a current_name'})
+        return Promise.resolve(
+          {message: 'Invalid input, please supply a current_name'}
+        );
       }
     };
 
@@ -54,4 +56,4 @@ describe('postRobot', () => {
     const results = postRobot(newRobot);
     expect(results).rejects.toEqual(expected);
   });
-})
+});

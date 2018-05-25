@@ -21,14 +21,14 @@ describe('updateRobot', () => {
     goodResponse = {
       status: 200,
       json: () => {
-        return Promise.resolve(updatedRobot)
+        return Promise.resolve(updatedRobot);
       }
     };
 
     errorResponse = {
       status: 404,
       json: () => {
-        return Promise.resolve({message: 'Entry not found'})
+        return Promise.resolve({message: 'Entry not found'});
       }
     };
 
