@@ -7,7 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <RobotForm
     addRobot={[Function]}
     editRobot={[Function]}
-    editing={null}
+    editing={Object {}}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

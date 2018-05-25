@@ -46,7 +46,7 @@ ShallowWrapper {
           <RobotForm
                     addRobot={[Function]}
                     editRobot={[Function]}
-                    editing={null}
+                    editing={Object {}}
           />
 </main>,
       ],
@@ -142,7 +142,7 @@ ShallowWrapper {
             <RobotForm
               addRobot={[Function]}
               editRobot={[Function]}
-              editing={null}
+              editing={Object {}}
 />,
           ],
         },
@@ -168,7 +168,7 @@ ShallowWrapper {
             "props": Object {
               "addRobot": [Function],
               "editRobot": [Function],
-              "editing": null,
+              "editing": Object {},
             },
             "ref": null,
             "rendered": null,
@@ -215,7 +215,7 @@ ShallowWrapper {
             <RobotForm
                         addRobot={[Function]}
                         editRobot={[Function]}
-                        editing={null}
+                        editing={Object {}}
             />
 </main>,
         ],
@@ -311,7 +311,7 @@ ShallowWrapper {
               <RobotForm
                 addRobot={[Function]}
                 editRobot={[Function]}
-                editing={null}
+                editing={Object {}}
 />,
             ],
           },
@@ -337,7 +337,7 @@ ShallowWrapper {
               "props": Object {
                 "addRobot": [Function],
                 "editRobot": [Function],
-                "editing": null,
+                "editing": Object {},
               },
               "ref": null,
               "rendered": null,
