@@ -17,7 +17,7 @@ class RobotForm extends Component {
   }
 
   componentDidMount() {
-    if (this.props.editing.name) {
+    if (this.props.editing.current_name) {
       const {
         date_added,
         first_active,
@@ -45,9 +45,8 @@ class RobotForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const robot = this.state;
-    if (this.props.editing) {
-      const { id } = this.props.editing;
-      this.props.editRobot({id, ...robot});
+    if (this.props.editing.current_name) {
+      this.props.editRobot({...robot});
     } else {
       this.props.addRobot(robot);
     }

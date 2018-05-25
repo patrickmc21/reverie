@@ -13,7 +13,7 @@ describe('RobotForm', () => {
   beforeEach(() => {
     mockEditRobot = jest.fn();
     mockAddRobot = jest.fn();
-    mockEditing = null;
+    mockEditing = {};
     wrapper = shallow(
       <RobotForm
         editRobot={mockEditRobot}
