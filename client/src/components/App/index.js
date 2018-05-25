@@ -70,7 +70,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 
+            className="App-title">
+            robot
+            <span className='header--sub'>
+              Portal
+            </span>
+          </h1>
+          <h2 className='user-name'>Welcome, Dr. Robert Ford!</h2>
         </header>
         <main>
           <RobotContainer 

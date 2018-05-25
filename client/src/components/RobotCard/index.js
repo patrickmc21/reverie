@@ -1,10 +1,9 @@
 import React from 'react';
 import './RobotCard.css';
 
-const RobotCard = ({robot, triggerForm, removeRobot}) => {
-  const evenClass = robot.id % 2 === 0 ? 'even' : '';
+const RobotCard = ({robot, triggerForm, removeRobot, classType}) => {
   return (
-    <article className={`robot-card ${evenClass}`}>
+    <article className={`robot-card ${classType}`}>
       <ul className='robot-card__list'>
         <li className='robot-card__list--list-item'>
           {robot.current_name} 

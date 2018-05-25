@@ -3,13 +3,15 @@ import RobotCard from '../RobotCard';
 import './RobotContainer.css';
 
 const RobotContainer = ({robots, triggerForm, removeRobot}) => {
-  const robotCards = robots.map(robot => {
+  const robotCards = robots.map((robot, index) => {
+    const evenClass = index % 2 === 0 ? '' : 'even';
     return (
       <RobotCard
         key={robot.id}
         robot={robot}
         triggerForm={triggerForm}
         removeRobot={removeRobot}
+        classType={evenClass}
       />
     )
   })
